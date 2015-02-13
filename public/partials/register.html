@@ -1,0 +1,51 @@
+<div ng-controller="registerCtrl">
+    <div class="title col-md-3">
+        Already register?
+        <a href="#/login">Login Here!</a>
+    </div>
+
+    <div class="row">
+        <h2 class="htitle col-md-5 col-md-offset-3">Register</h2>
+        <div class="col-md-7 col-md-offset-4">
+            <span class="alert alert-success" ng-show=success ng-bind="msg"></span>
+            <span class="alert alert-danger" ng-show=errors ng-bind="msg"></span>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="bkform col-md-5 col-md-offset-3">
+            <form name="regForm" novalidate ng-submit="submit()">
+                <div class="form-group">
+                    <label>*User Name</label> 
+                    <span class="alert alert-warning" ng-show="regForm.userName.$error.required">This field is required</span>
+                    <span class="alert alert-warning" ng-show="regForm.userName.$error.minlength">This field must have at least 3 characters</span>
+                    
+                    <input type="text" class="form-control" name="userName" placeholder="Enter Username" ng-model="reg['userName']" required ng-minlength="3"/>
+                </div>
+                <div class="form-group">
+                    <label>*Email address</label>
+                        <span class="alert alert-warning" ng-show="regForm.email.$error.required">This field is required</span>
+                        <span class="alert alert-warning" ng-show="!(regForm.email.$error.required) && regForm.email.$invalid">Please input a valid Email address</span> 
+                    <input type="text" class="form-control" name="email" placeholder="Enter Email" ng-model="reg['email']" required ng-pattern="/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]+$/i"/>
+                </div>
+                <div class="form-group">
+                    <label>*Password</label>
+                        <span class="alert alert-warning" ng-show="regForm.passWord.$error.required">This field is required</span>
+                        <span class="alert alert-warning" ng-show="regForm.passWord.$error.minlength">This field must have at least 8 characters</span>
+                    
+                    <input type="password" class="form-control" name="passWord" placeholder="Enter Password" ng-model="reg['password']" required ng-minlength="8"/>
+                </div>
+                <div class="form-group" ng-show="regForm.passWord.$valid">
+                    <label>*Confirm Password</label>
+                        <span class="alert alert-warning" ng-show="regForm.confirmPw.$error.required">This field is required</span>
+                        <span class="alert alert-warning" ng-show="regForm.confirmPw.$error.minlength">This field must have at least 8 characters</span>
+                        <span class="alert alert-danger" ng-show="!(regForm.confirmPw.$error.required) && !(regForm.confirmPw.$error.minlength) && confirmPassword()">Your input does not match password</span>
+                   
+                    <input type="password" class="form-control" name="confirmPw" placeholder="Confirm Password" ng-model="reg['confirmPw']" required ng-minlength="8"/>
+                </div>
+                <button type="submit" class="btn btn-info col-md-offset-10" ng-disabled="regForm.$invalid || confirmPassword()">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+

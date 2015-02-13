@@ -1,0 +1,44 @@
+div.title {
+    margin-top: 30px;
+} 
+
+h2.htitle {
+    margin-bottom: 10px;
+    border-bottom: solid black 1px;
+}
+
+div.bkform {
+    margin-top: 20px;
+}
+
+div.row {
+    margin: 15px 0;
+}
+
+/* Registration and Login page */
+span.alert {
+    margin-bottom: 0px;
+    padding: 0px 5px;
+}
+
+label {
+    width: 30%;
+}
+
+/* Dashboard page */
+
+p {
+    margin: 0 0;
+    padding: 0;
+}
+
+p.ptitl {
+    font-size: 1.5em;
+}
+
+/* Dashboard page */
+button.btn {
+    font-size: 13px;
+    padding: 1px 12px;
+    vertical-align: top;
+}

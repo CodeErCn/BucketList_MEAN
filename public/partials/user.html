@@ -1,0 +1,27 @@
+<div ng-controller="userCtrl">
+    <div class="title col-md-1">
+        <a href="#/dashboard">Back</a>
+    </div>
+    <div class="title col-md-1">
+        <a href="#/login" ng-click="logout()">Log out</a>
+    </div>
+
+    <div class="row">
+        <h2 class="htitle col-md-5 col-md-offset-3">{{otherName}}'s Bucket List</h2>
+    </div>
+    <div class="row">
+        <p class="ptitl col-md-5 col-md-offset-3">Accomplished!!</p>
+        <div class="col-md-8 col-md-offset-3">
+            <p ng-show="userBuckets.length<=0">There is no items in your Accomplished List.</p>
+            <p ng-repeat="item in otherBuckets" ng-show=item.checked><input type="checkbox"  ng-model="checkBox"/>{{item.bucketMsg}}</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <p class="ptitl col-md-5 col-md-offset-3">Pending action~</p>
+        <div class="col-md-8 col-md-offset-3">
+            <p ng-show="userBuckets.length<=0">There is no items in your Pending List.</p>
+            <p ng-repeat="item in otherBuckets" ng-hide=item.checked ><input type="checkbox" ng-model="checkBox"/>{{item.bucketMsg}}</p>
+        </div>
+    </div>
+</div>
