@@ -14,10 +14,11 @@ module.exports = {
                 password: request.body.password,
                 bucket: []
             }
-           
+
             var a = new bkList(newUser);
             a.save(function(err) {
                 if(err){
+                    console.log(err);
                     response.send({error: false, msg: "Validation error. Please try again."});
                 } else {
                     response.send({error: true, msg: 'Register Successful!'});

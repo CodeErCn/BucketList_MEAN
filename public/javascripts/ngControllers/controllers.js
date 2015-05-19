@@ -11,7 +11,13 @@ appBucket.controller('registerCtrl', function($scope, bktFactory) {
     }
 
     $scope.submit = function() {
-        bktFactory.regiterNewUser($scope.reg, function(dataReturn) {
+
+        var newUserData = {};
+        newUserData.userName = $scope.reg.userName;
+        newUserData.email = $scope.reg.email;
+        newUserData.password = $scope.reg.password;
+
+        bktFactory.regiterNewUser(newUserData, function(dataReturn) {
             if(dataReturn.error) {
                 $scope.success = true;
                 $scope.errors = false;

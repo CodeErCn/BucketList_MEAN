@@ -1,5 +1,5 @@
 
-var bkltCtrl = require('./../server/controllers/Controller.js');
+var bkltCtrl = require('./../server/controllers/controller.js');
 module.exports = function Routes(app) {
 
   // EXPRESS $HTTP REQUEST AND RESPONDS //
